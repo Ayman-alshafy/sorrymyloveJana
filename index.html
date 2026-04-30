@@ -3,109 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Jana</title>
+    <title>Your Title</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Gradient background from standard pink to dark pink */
-            background: linear-gradient(135deg, #ffb6c1, #c2185b); 
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
+        .no-button {
+            padding: 15px 40px;
+            font-size: 20px;
+            background-color: #FF6B9D;
+            transition: transform 0.2s;
         }
-        .container {
-            background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
-            padding: 40px;
-            border-radius: 15px;
-            /* Dark red shadow to tie it together */
-            box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3); 
-            max-width: 500px;
+        .no-button:hover {
+            transform: scale(1.05);
         }
-        h1 {
-            color: #8b0000; /* Dark Red */
-            margin-top: 0;
-        }
-        p {
-            color: #4a0404; /* Very dark red for readability */
-            line-height: 1.6;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        .signature {
-            font-weight: bold;
-            text-align: right;
-            display: block;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            color: #c2185b; /* Dark Pink */
-        }
-        .buttons {
-            position: relative;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        button {
-            padding: 10px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        #yesBtn {
-            background-color: #c2185b; /* Dark Pink */
-            color: white;
-            margin-right: 15px;
-            z-index: 2;
-        }
-        #yesBtn:hover {
-            background-color: #8b0000; /* Dark Red on hover */
-        }
-        #noBtn {
-            background-color: #ffb6c1; /* Standard Pink */
-            color: #8b0000; /* Dark Red Text */
-            position: absolute;
-            z-index: 1;
+        .button-container {
+            height: 70px;
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>I'm so sorry Janjon.</h1>
-        <p>
-            [im so sorry that im who im im ik how much i hurt you baby and i hope u fogive me ):]
-        </p>
-        <span class="signature">-  -Ayman</span>
-        
-        <h3 style="color: #8b0000; margin-top: 30px;">Will you forgive me?</h3>
-        <div class="buttons">
-            <button id="yesBtn" onclick="alert('hehe yes i love you (;')">Yes</button>
-            <button id="noBtn" onmouseover="moveButton()">No</button>
-        </div>
+    <div class="button-container">
+        <button class="no-button">No</button>
     </div>
-
-    <script>
-        function moveButton() {
-            const noBtn = document.getElementById('noBtn');
-            const yesBtn = document.getElementById('yesBtn');
-            
-            // Calculate random positions, keeping it within the window
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 20);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 20);
-            
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = `${x}px`;
-            noBtn.style.top = `${y}px`;
-        }
-    </script>
-
 </body>
 </html>
