@@ -3,25 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Title</title>
+    <title>For Jana</title>
     <style>
-        .no-button {
-            padding: 15px 40px;
-            font-size: 20px;
-            background-color: #FF6B9D;
-            transition: transform 0.2s;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffb6c1, #c2185b); 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevents scrollbars when the button moves */
         }
-        .no-button:hover {
-            transform: scale(1.05);
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(139, 0, 0, 0.4); 
+            max-width: 500px;
+            z-index: 10;
         }
-        .button-container {
-            height: 70px;
+        h1 { color: #8b0000; margin-top: 0; }
+        p { color: #4a0404; line-height: 1.6; font-size: 1.1em; }
+        
+        .buttons {
+            position: relative;
+            height: 60px;
+            margin-top: 30px;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px; /* Rounded for a more playful look */
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #yesBtn {
+            background-color: #c2185b;
+            color: white;
+            box-shadow: 0 4px 15px rgba(194, 24, 91, 0.4);
+        }
+        #yesBtn:hover { transform: scale(1.1); background-color: #8b0000; }
+
+        /* The Playful "No" Button */
+        #noBtn {
+            background-color: #ff69b4; /* Brighter pink for visibility */
+            color: white;
+            position: absolute;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.6); /* Glow effect */
+            animation: playfulBounce 1.5s infinite; /* Constant bouncing */
+        }
+
+        /* Bouncing Animation */
+        @keyframes playfulBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Spinning effect when it moves */
+        .jump {
+            animation: spinAndJump 0.4s ease-out !important;
+        }
+
+        @keyframes spinAndJump {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.5) rotate(180deg); }
+            100% { transform: scale(1) rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <div class="button-container">
-        <button class="no-button">No</button>
+
+    <div class="container">
+        <h1>I'm so sorry, Jana.</h1>
+        <p>
+            I know things have been tough with the distance, and I hate that I made a mistake. 
+            You mean the world to me, and I want to make this right.
+        </p>
+        <p style="font-style: italic; color: #c2185b;">-  Ayman</p>
+        
+        <h3 style="color: #8b0000;">Will you forgive me?</h3>
+        <div class="buttons">
+            <button id="yesBtn" onclick="celebrate()">Yes</button>
+            <button id="noBtn" onmouseover="moveButton()">No</button>
+        </div>
     </div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            
+            // Add the jump/spin animation class
+            noBtn.classList.add('jump');
+            setTimeout(() => noBtn.classList.remove('jump'), 400);
+
+            // Random position logic
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 40);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 40);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        function celebrate() {
+            alert("Thank you Jana! ❤️ I can't wait to talk to you.");
+            // Optional: You could redirect her to a photo of you two here
+        }
+    </script>
+
 </body>
 </html>
